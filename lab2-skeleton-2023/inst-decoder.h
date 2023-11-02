@@ -16,6 +16,26 @@
 static const int INSTRUCTION_SIZE = 4;
 
 /* TODO: add enums and constants necessary for your instruction decoder. */
+enum RISC_opCodes
+{
+  LUI = 0b0110111,
+  
+  // alle andere toevoegen
+};
+
+enum RISCV_func3
+{
+  ADD_3 = 0b000,
+  SUB_3 = 0b000,
+};
+
+
+enum RISCV_func7
+{
+  ADD_7 = 0b0000000,
+  SUB_7 = 0b0100000,
+};
+
 
 
 /* Exception that should be thrown when an illegal instruction
@@ -40,6 +60,9 @@ class InstructionDecoder
   public:
     void                setInstructionWord(const uint32_t instructionWord);
     uint32_t            getInstructionWord() const;
+    uint8_t             getOpcode() const;
+    bool                bepaalType();
+    bool                checkGeldig();
 
     RegNumber           getA() const;
     RegNumber           getB() const;
@@ -51,6 +74,7 @@ class InstructionDecoder
 
   private:
     uint32_t instructionWord;
+    bool rs2 = false;
 };
 
 std::ostream &operator<<(std::ostream &os, const InstructionDecoder &decoder);

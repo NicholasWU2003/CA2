@@ -19,6 +19,12 @@ operator<<(std::ostream &os, const InstructionDecoder &decoder)
    * in "decoder" to the output stream "os". Do not include a newline.
    * And remove the statement below.
    */
+  //check of het is gelukt, roept alle functies aan van inst-decoder.cc/.h
+  //roept per opcode.
+  switch(decoder)
+  {
+    
+  };
   os << "not implemented";
 
   return os;
