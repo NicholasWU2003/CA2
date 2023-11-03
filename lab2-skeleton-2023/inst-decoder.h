@@ -18,7 +18,9 @@ static const int INSTRUCTION_SIZE = 4;
 /* TODO: add enums and constants necessary for your instruction decoder. */
 enum RISC_opCodes
 {
-  LUI = 0b0110111,
+  ADDI = 0x27,
+  NOP = 0x38, 
+  SUB = 0x15,
   
   // alle andere toevoegen
 };
@@ -75,6 +77,8 @@ class InstructionDecoder
   private:
     uint32_t instructionWord;
     bool rs2 = false;
+    bool R_TYPE = false, I_TYPE = false , S_TYPE = false;
+
 };
 
 std::ostream &operator<<(std::ostream &os, const InstructionDecoder &decoder);
